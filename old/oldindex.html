@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IMA_</title>
+      <link rel="stylesheet" type="text/css" href="/style/style.css">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    <script src="/aframe/set-image.js"></script>
+  </head>
+  <body>
+     <a-scene>
+         <!--Class Div-->
+   <div class="classDrop">
+  <button onclick="classFunct()" class="clButt">Classrooms</button>
+  <div id="classDropdown" class="cldown-content">
+    <a href=class1.html>Classroom 1</a>
+    <a href=class2.html>Classroom 2</a>
+    <a href=class3.html>Classroom 3</a>
+  </div>
+</div>
+<!--Studio Div-->
+   <div class="studioDrop">
+  <button onclick="studFunct()" class="stButt">Studio</button>
+  <div id="stDropdown" class="stDrop-content">
+    <a href=studiomain.html>Main Studio</a>
+    <a href=SCS.html>Senior Capstone Space</a>
+    <a href=CDS.html>Capstone Development Space</a>
+  </div>
+</div>
+<!--Digital Fab Div-->
+   <div class="digiDrop">
+  <button onclick="digiFunct()" class="digiButt">Digital Fabrication</button>
+  <div id="digiDropdown" class="digi-content">
+    <a href=laser.html>Laser Cutter</a>
+    <a href=3D.html>3D Printers</a>
+  </div>
+</div>
+<!--Equipment Div-->
+   <div class="equipDrop">
+  <button onclick="equipFunct()" class="equipButt">Equipment Room</button>
+  <div id="equipDropdown" class="equip-content">
+    <a href=components.html>Components and Materials</a>
+    <a href=prodequip.html>Production Equipment</a>
+  </div>
+</div>
+<!--Other Div-->
+   <div class="otherDrop">
+  <button onclick="otherFunct()" class="otherButt">Other</button>
+  <div id="otherDropdown" class="other-content">
+    <a href=digiFarm.html>Digital Farm</a>
+    <a href=hallway.html>Hallway</a>
+    <a href=vrStudio.html>VR Studio</a>
+    <a href=facultyLounge.html>Faculty Lounge</a>
+    <a href=studentStorage.html>Student Storage</a>
+  </div>
+</div>
+
+      <a-assets>
+        <img id="studio" crossorigin="anonymous" src="https://cdn.glitch.com/88515310-0f3e-49c6-a365-19a68e569316%2Fstudio.JPG?1492424036625">
+        <script id="link" type="text/html">
+          <a-entity class="link"
+            geometry="primitive: plane; height: 1; width: 1"
+            material="shader: flat; src: ${thumb}"
+            event-set__1="_event: mousedown; scale: 1 1 1"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+            event-set__4="_event: mouseleave; scale: 1 1 1"
+            set-image="on: click; target: #image-360; src: ${src}"
+            sound="on: click; src: #click-sound"></a-entity>
+        </script>
+         </a-assets>
+         
+         <a-sky id="image-360" radius="10" src="#studio"></a-sky>
+         
+        
+      </a-scene>
+      
+    
+  </body>
+    
+    <script>
+/////////////////////Classroom////////////////
+function classFunct() {
+ document.getElementById("classDropdown").classList.toggle("show");
+}
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.clButt')) {
+
+    var dropdowns = document.getElementsByClassName("cldown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+/////////////////////STUDIO////////////////
+function studFunct() {
+    document.getElementById("stDropdown").classList.toggle("show");
+}
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.stButt')) {
+
+    var dropdowns = document.getElementsByClassName("stDrop-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+/////////////////////DigiFab////////////////
+function digiFunct() {
+    document.getElementById("digiDropdown").classList.toggle("show");
+}
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.digiButt')) {
+
+    var dropdowns = document.getElementsByClassName("digi-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+/////////////////////Equip////////////////
+function equipFunct() {
+    document.getElementById("equipDropdown").classList.toggle("show");
+}
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.equipButt')) {
+
+    var dropdowns = document.getElementsByClassName("equip-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+/////////////////////Other////////////////
+function otherFunct() {
+    document.getElementById("otherDropdown").classList.toggle("show");
+}
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.otherButt')) {
+
+    var dropdowns = document.getElementsByClassName("other-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+    
+    </script>
+</html>

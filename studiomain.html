@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>IMA_</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <link rel="stylesheet" type="text/css" href="style/style.css">
+    <script   src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    <script src="aframe/set-image.js"></script>
+</head>
+<body>
+
+<div class="w3-sidebar w3-bar-block w3-light-grey w3-card-2" style="width:170px; opacity: .9;">
+    <br></br> 
+<center><a href="index.html"><img src="images/ima.png" alt="IMA logo" style="width:100px;height:100px;o"></a></center>
+    <br></br>
+  <button class="w3-button w3-block w3-left-align" onclick="classFunc()">
+  Classrooms <i class="fa fa-caret-down"></i>
+  </button>
+  <div id="classAcc" class="w3-hide w3-white w3-card-2">
+    <a href=class1.html class="w3-bar-item w3-button">Classroom 1</a>
+    <a href=class2.html class="w3-bar-item w3-button">Classroom 2</a>
+    <a href=class3.html class="w3-bar-item w3-button">Classroom 3</a>
+      
+  </div>
+  <button class="w3-button w3-block w3-left-align" onclick="studioFunc()">
+  Studio <i class="fa fa-caret-down"></i>
+  </button>
+  <div id="studioAcc" class="w3-hide w3-white w3-card-2">
+    <a href=studiomain.html class="w3-bar-item w3-button">Main Studio</a>
+    <a href=SCS.html class="w3-bar-item w3-button">Senior Capstone Space</a>
+     <a href=CDS.html class="w3-bar-item w3-button">Capstone Development Space</a>  
+  </div>
+    <button class="w3-button w3-block w3-left-align" onclick="equipFunc()">
+  Equipment Room <i class="fa fa-caret-down"></i>
+  </button>
+  <div id="equipAcc" class="w3-hide w3-white w3-card-2">
+    <a href=components.html class="w3-bar-item w3-button">Components</a>
+    <a href=prodequip.html class="w3-bar-item w3-button">Production</a>
+  </div>
+  
+    <button class="w3-button w3-block w3-left-align" onclick="digiFunc()">
+  Fabrication Room <i class="fa fa-caret-down"></i>
+  </button>
+  <div id="digiAcc" class="w3-hide w3-white w3-card-2">
+    <a href=laser.html class="w3-bar-item w3-button">Laser Cutters</a>
+    <a href=3D.html class="w3-bar-item w3-button">3D Printing</a>
+  </div>
+
+    <button class="w3-button w3-block w3-left-align" onclick="otherFunc()">
+  Other <i class="fa fa-caret-down"></i>
+  </button>
+  <div id="otherAcc" class="w3-hide w3-white w3-card-2">
+    <a href=hallway.html class="w3-bar-item w3-button">Hallway</a>
+    <a href=digiFarm.html class="w3-bar-item w3-button">Digital Farm</a>
+      <a href=digi2.html class="w3-bar-item w3-button">Digital Farm 2</a>
+    <a href=facultyLounge.html class="w3-bar-item w3-button">Faculty Lounge</a>
+      <a href=studentStorage.html class="w3-bar-item w3-button">Student Storage</a>
+        <a href=vrStudio.html class="w3-bar-item w3-button">VR Studio</a>
+      
+  </div>
+    </div>
+    
+
+<a-scene>
+
+ <a-assets>
+        <img id="studio" crossorigin="anonymous" src="https://cdn.glitch.com/88515310-0f3e-49c6-a365-19a68e569316%2Fstudio.JPG?1492424036625">
+        <script id="link" type="text/html">
+          <a-entity class="link"
+            geometry="primitive: plane; height: 1; width: 1"
+            material="shader: flat; src: ${thumb}"
+            event-set__1="_event: mousedown; scale: 1 1 1"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+            event-set__4="_event: mouseleave; scale: 1 1 1"
+            set-image="on: click; target: #image-360; src: ${src}"
+            sound="on: click; src: #click-sound"></a-entity>
+        </script>
+         </a-assets>
+         
+         <a-sky id="image-360" radius="10" src="#studio"></a-sky>
+         
+        
+      </a-scene>
+
+  
+    
+<script>
+    
+    
+function classFunc() {
+    var x = document.getElementById("classAcc");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-purple";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-purple", "");
+    }
+}
+
+function studioFunc() {
+    var x = document.getElementById("studioAcc");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-purple";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-purple", "");
+    }
+}
+
+    
+function digiFunc() {
+    var x = document.getElementById("digiAcc");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-purple";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-purple", "");
+    }
+}
+
+    function equipFunc() {
+    var x = document.getElementById("equipAcc");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-purple";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-purple", "");
+    }
+}
+
+    function otherFunc() {
+    var x = document.getElementById("otherAcc");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-purple";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-purple", "");
+    }
+}
+
+
+</script>
+
+</body>
+</html>
